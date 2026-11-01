@@ -1,9 +1,9 @@
 package nomina;
 
 public class EmpleadoComision extends Empleado {
-    private double salarioBase;
-    private double ventas;
-    private double porcentajeComision;
+    private final double salarioBase;
+    private final double ventas;
+    private final double porcentajeComision;
 
     public EmpleadoComision(String nombre, String identificacion, double salarioBase, double ventas, double porcentajeComision) {
         super(nombre, identificacion);
@@ -17,6 +17,7 @@ public class EmpleadoComision extends Empleado {
         this.porcentajeComision = porcentajeComision;
     }
 
+    // Suma salario base, comision y el 3% extra si supera $20.000.000 en ventas.
     @Override
     public double calcularSalarioBruto() {
         double comision = ventas * porcentajeComision;
@@ -29,8 +30,10 @@ public class EmpleadoComision extends Empleado {
         return salarioBase + comision + bonoAdicional;
     }
 
+    // La empresa cubre un bono mensual de alimentacion de $1.000.000.
     @Override
     public double calcularBeneficiosAdicionales() {
+
         return 1000000;
     }
 }

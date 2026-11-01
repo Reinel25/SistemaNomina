@@ -1,8 +1,8 @@
 package nomina;
 
 public class EmpleadoAsalariado extends Empleado {
-    private double salarioMensual;
-    private int añosEnLaEmpresa;
+    private final double salarioMensual;
+    private final int añosEnLaEmpresa;
 
     public EmpleadoAsalariado(
             String nombre,
@@ -21,6 +21,7 @@ public class EmpleadoAsalariado extends Empleado {
         this.añosEnLaEmpresa = añosEnLaEmpresa;
     }
 
+    // El bono es del 10% y se aplica al superar cinco anos en la empresa.
     @Override
     public double calcularSalarioBruto() {
         double bono = 0;
@@ -32,8 +33,10 @@ public class EmpleadoAsalariado extends Empleado {
         return salarioMensual + bono;
     }
 
+    // La empresa cubre un bono mensual de alimentacion de $1.000.000.
     @Override
     public double calcularBeneficiosAdicionales() {
+
         return 1000000;
     }
 }

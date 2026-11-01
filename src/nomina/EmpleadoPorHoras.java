@@ -1,10 +1,10 @@
 package nomina;
 
 public class EmpleadoPorHoras extends Empleado {
-    private double tarifaPorHora;
-    private double horasTrabajadas;
-    private int aniosEnLaEmpresa;
-    private boolean aceptaFondoAhorro;
+    private final double tarifaPorHora;
+    private final double horasTrabajadas;
+    private final int aniosEnLaEmpresa;
+    private final boolean aceptaFondoAhorro;
 
     public EmpleadoPorHoras(String nombre, String identificacion, double tarifaPorHora, double horasTrabajadas, int aniosEnLaEmpresa, boolean aceptaFondoAhorro) {
         super(nombre, identificacion);
@@ -23,6 +23,7 @@ public class EmpleadoPorHoras extends Empleado {
         this.aceptaFondoAhorro = aceptaFondoAhorro;
     }
 
+    // Las horas sobre 40 se pagan a 1.5 veces la tarifa normal.
     @Override
     public double calcularSalarioBruto() {
         if (horasTrabajadas <= 40) {
@@ -34,6 +35,7 @@ public class EmpleadoPorHoras extends Empleado {
         return (horasNormales * tarifaPorHora) + (horasExtra * tarifaPorHora * 1.5);
     }
 
+    // El fondo se calcula si lleva mas de un año y acepta participar.
     @Override
     public double calcularBeneficiosAdicionales() {
         if (aniosEnLaEmpresa > 1 && aceptaFondoAhorro) {

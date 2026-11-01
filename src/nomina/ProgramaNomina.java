@@ -18,6 +18,13 @@ public class ProgramaNomina {
 
     private static void mostrarResumen(Empleado empleado) {
         System.out.println("Empleado: " + empleado.getNombre());
+        System.out.println("Identificacion: " + empleado.getIdentificacion());
+
+        if (empleado instanceof EmpleadoTemporal temporal) {
+            System.out.println("Duracion del contrato (meses): "
+                    + temporal.getDuracionContratoMeses());
+        }
+
         System.out.println("Salario bruto: " + empleado.calcularSalarioBruto());
         System.out.println("Deducciones (4%): " + empleado.calcularDeduccionesObligatorias());
         System.out.println("Salario neto: " + empleado.calcularSalarioNeto());
