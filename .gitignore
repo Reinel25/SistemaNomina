@@ -4,4 +4,4 @@ out/
 
 # Configuracion local de IntelliJ
 .idea/
-*.imls
+*.iml
